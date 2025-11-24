@@ -1,27 +1,31 @@
-version: '3.8'
-
 services:
-  app:
-    build: .
-    container_name: my-spring-app
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
-    depends_on:
-      - db
-
-  db:
-    image: postgres:16
-    container_name: db-postgres
+  postgres:
+    image: postgres:15
+    container_name: easybank-postgres
+    restart: always
     environment:
       POSTGRES_DB: easybank
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: 123456
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  easybank-api:
+    build: .
+    container_name: easybank-api
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: easybank
+      DB_USER: postgres
+      DB_PASSWORD: 123456
+    ports:
+      - "8080:8080"
 
 volumes:
   postgres_data:

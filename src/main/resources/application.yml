@@ -3,9 +3,9 @@ spring:
     name: EasyBank
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/easybank
-    username: postgres
-    password: 12345
+    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${DB_NAME:easybank}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:123456}
 
   jpa:
     show-sql: true
