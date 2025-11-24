@@ -1,0 +1,2885 @@
+{
+	"info": {
+		"_postman_id": "4ff51dbd-0627-42bc-b72a-45f3d82529db",
+		"name": "EasyBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36185987"
+	},
+	"item": [
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dui\":\"22222228\",\r\n    \"username\": \"Joe02\",\r\n    \"firstName\": \"Joe\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joe02@gmail.com\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/auth/register"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dui\":\"22222228\",\r\n    \"username\": \"Joe02\",\r\n    \"firstName\": \"Joe\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joe02@gmail.com\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:17:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\"\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dui\":\"22222228\",\r\n    \r\n    \"firstName\": \"Joe\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joe02@gmail.com\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/register"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:21:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed\",\n    \"data\": [\n        \"username: Username is necessary\"\n    ]\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dui\":\"22222228\",\r\n    \"username\": \"Joe02\",\r\n   \r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joe02@gmail.com\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/register"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:21:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed\",\n    \"data\": [\n        \"firstName: First Name is necessary\"\n    ]\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n    \"username\": \"Joe02\",\r\n    \"firstName\": \"Joe\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joe02@gmail.com\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/register"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:22:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed\",\n    \"data\": [\n        \"dui: DUI is necessary\"\n    ]\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dui\":\"22222228\",\r\n    \"username\": \"Joe02\",\r\n    \"firstName\": \"Joe\",\r\n    \"lastName\": \"Doe\",\r\n   \r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/register"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:22:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed\",\n    \"data\": [\n        \"email: Email is necessary\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Joe02\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/auth/login"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Joe02\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:19:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User login correctly\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImlhdCI6MTc1MTIyMTE0OCwiZXhwIjoxNzUxMjI0NzQ4fQ.Kb_ctY5x3hy3N1I5xEF4NbIQ0sfldbUt_YJc4RW8mUtQE_Xv7XuhkADFJw1a9JHb\",\n        \"tokenType\": \"Bearer\"\n    }\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Joe2\",\r\n    \"password\": \"Ilikecheese2$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 18:20:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"timestamp\": \"2025-06-29\",\n        \"message\": \"Invalid username or password\",\n        \"path\": \"uri=/api/auth/login\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Bill",
+					"item": [
+						{
+							"name": "CREATE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"expenseName\": \"Pago recibo\",\r\n    \"category\": \"Pagos\",\r\n    \"amount\": \"5.00\",\r\n    \"date\": \"2025-06-29\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/bill/create"
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"expenseName\": \"Pago recibo\",\r\n    \"category\": \"Pagos\",\r\n    \"amount\": \"5.00\",\r\n    \"date\": \"2025-06-29\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/bill/create"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 18:59:57 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Successfully created bill\"\n}"
+								}
+							]
+						},
+						{
+							"name": "FIND_OWN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/bill/findown"
+							},
+							"response": [
+								{
+									"name": "FIND_OWN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/bill/findown"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 19:00:38 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Bills found\",\n    \"data\": [\n        {\n            \"id\": \"1987fe35-ddef-453a-8ea4-46cf58601ec5\",\n            \"expenseName\": \"Pago recibo\",\n            \"category\": \"Pagos\",\n            \"amount\": 5,\n            \"date\": \"2025-06-29T00:00:00.000+00:00\",\n            \"state\": \"PENDING\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "PAY",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/bill/pay/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bill",
+										"pay",
+										":id"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1987fe35-ddef-453a-8ea4-46cf58601ec5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "PAY",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/bill/pay/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bill",
+												"pay",
+												":id"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1987fe35-ddef-453a-8ea4-46cf58601ec5"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 19:04:42 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Successfully payed bill\"\n}"
+								}
+							]
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/bill/delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bill",
+										"delete",
+										":id"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1987fe35-ddef-453a-8ea4-46cf58601ec5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "DELETE",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/bill/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bill",
+												"delete",
+												":id"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1987fe35-ddef-453a-8ea4-46cf58601ec5"
+												}
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 19:09:25 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Successfully deleted bill\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Card",
+					"item": [
+						{
+							"name": "CREATE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/card/create"
+							},
+							"response": [
+								{
+									"name": "CREATE",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/card/create"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 18:54:09 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Card created successfully\"\n}"
+								},
+								{
+									"name": "CREATE",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/card/create"
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 18:54:56 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"timestamp\": \"2025-06-29\",\n        \"message\": \"Card already exists\",\n        \"path\": \"uri=/api/card/create\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "CREATE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyNTAxNiwiZXhwIjoxNzUxMjI4NjE2fQ.4gZj0F0WWIJBojJyFVXJE16rFTVeWpvsG4Wngr7vkYdaHXs5ddMpb9Hlc3jr4f3i"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{   \r\n    \"firstName\": \"paz\",\r\n    \"lastName\": \"campos\",\r\n    \"amount\": 5.00,\r\n    \"description\": \"Pago comida\",\r\n    \"accountNumber\": \"142826677660\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/transaction/create"
+							},
+							"response": [
+								{
+									"name": "CREATE",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n{   \r\n    \"firstName\": \"paz\",\r\n    \"lastName\": \"campos\",\r\n    \"amount\": 5.00,\r\n    \"description\": \"Pago comida\",\r\n    \"accountNumber\": \"142826677660\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/transaction/create"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 19:23:52 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Transaction successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "FIND_OWN",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "FIND_OWN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/transaction/findown"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 19:24:32 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Transactions found\",\n    \"data\": [\n        {\n            \"id\": \"0648453e-037b-40d9-9f2f-6d603fcf8408\",\n            \"amount\": 5,\n            \"description\": \"Pago comida\",\n            \"accountNumber\": \"773217965003\",\n            \"date\": \"2025-06-29T13:23:52.720602\",\n            \"type\": \"SENDER\",\n            \"name\": \"Joe Doe\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "FIND_OWN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2UwMiIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc1MTIyMjk0NywiZXhwIjoxNzUxMjI2NTQ3fQ.PHTcdJmybocakFitO46Ij-qHGErYMOuGyhQ3hob4hlqUyAJUP8N7WYY5cQ_wW-N6"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/account/findown"
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/account/findown"
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 18:50:01 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"timestamp\": \"2025-06-29\",\n        \"message\": \"User has no registered cards.\",\n        \"path\": \"uri=/api/account/findown\"\n    }\n}"
+								},
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{baseUrl}}/account/findown"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 29 Jun 2025 18:55:40 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Account found\",\n    \"data\": {\n        \"firstName\": \"Joe\",\n        \"lastName\": \"Doe\",\n        \"accountNumber\": \"773217965003\",\n        \"balance\": 50\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "whoami",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjMzNDgyLCJleHAiOjE3NTEyMzcwODJ9.Bpv12olzg_BarL9oWpz68YffhyQdvwimQbTM3zQY4-Bszm3zXYckFYyfvfjhojhI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/auth/whoami"
+					},
+					"response": [
+						{
+							"name": "whoami",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/auth/whoami"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 21:44:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"WhoAmI correctly\",\n    \"data\": {\n        \"id\": \"b092e7e9-8d09-4227-8f46-103bcba06686\",\n        \"username\": \"adminuser\",\n        \"name\": \"Admin User\",\n        \"email\": \"admin@example.com\",\n        \"dui\": \"12345678-9\",\n        \"active\": false,\n        \"roles\": [\n            \"ROLE_ADMIN\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "USER_LIST",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI0Mjc3LCJleHAiOjE3NTEyMjc4Nzd9.WwYOfMvDYSE6n5wXnFxruD-mslLefJOvMIyDNa98p2ABoVkWlTWqohIvjXk42hoB"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/admin/userlist"
+					},
+					"response": [
+						{
+							"name": "USER_LIST",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/admin/userlist"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:16:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Users found\",\n    \"data\": [\n        {\n            \"id\": \"b092e7e9-8d09-4227-8f46-103bcba06686\",\n            \"username\": \"adminuser\",\n            \"name\": \"Admin User\",\n            \"email\": \"admin@example.com\",\n            \"dui\": \"12345678-9\",\n            \"active\": true,\n            \"roles\": [\n                \"ROLE_ADMIN\"\n            ]\n        },\n        {\n            \"id\": \"9c3a4ccc-aba8-4620-91ac-451ab2a59913\",\n            \"username\": \"malena\",\n            \"name\": \"nicole campos\",\n            \"email\": \"holaa@gmail.com\",\n            \"dui\": \"222228\",\n            \"active\": true,\n            \"roles\": [\n                \"ROLE_USER\"\n            ]\n        },\n        {\n            \"id\": \"1ea13d90-a4f4-4040-9c9d-b91a9efef9bc\",\n            \"username\": \"elena1\",\n            \"name\": \"elena lopez\",\n            \"email\": \"elenaqueso@uca.com\",\n            \"dui\": \"22222222-5\",\n            \"active\": true,\n            \"roles\": [\n                \"ROLE_USER\"\n            ]\n        },\n        {\n            \"id\": \"785225f8-bf00-4b67-9031-7ed666f8cbaf\",\n            \"username\": \"ricky\",\n            \"name\": \"paz campos\",\n            \"email\": \"hol1a@gmail.com\",\n            \"dui\": \"22222q\",\n            \"active\": true,\n            \"roles\": [\n                \"ROLE_USER\"\n            ]\n        },\n        {\n            \"id\": \"2e462f33-bce1-4959-a6dc-7ebada9710b9\",\n            \"username\": \"Joe02\",\n            \"name\": \"Joe Doe\",\n            \"email\": \"joe02@gmail.com\",\n            \"dui\": \"22222228\",\n            \"active\": true,\n            \"roles\": [\n                \"ROLE_USER\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "USER_LIST/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI0Mjc3LCJleHAiOjE3NTEyMjc4Nzd9.WwYOfMvDYSE6n5wXnFxruD-mslLefJOvMIyDNa98p2ABoVkWlTWqohIvjXk42hoB"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "USER_LIST/id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:17:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User found\",\n    \"data\": {\n        \"id\": \"2e462f33-bce1-4959-a6dc-7ebada9710b9\",\n        \"username\": \"Joe02\",\n        \"name\": \"Joe Doe\",\n        \"email\": \"joe02@gmail.com\",\n        \"dui\": \"22222228\",\n        \"active\": true,\n        \"roles\": [\n            \"ROLE_USER\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI5NDc4LCJleHAiOjE3NTEyMzMwNzh9.gddwoliFUTCULiIrvsEQUA9sSZnDVcdCDf2jlpUsiP4wmTLZ9NAyocTSn3NH-r0q"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/delete/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9c3a4ccc-aba8-4620-91ac-451ab2a59913"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE USER",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "9c3a4ccc-aba8-4620-91ac-451ab2a59913"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 20:47:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Successfully deleted user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CHANGE ROLE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI1Mjc0LCJleHAiOjE3NTEyMjg4NzR9.SqLUqRj630J6ndfDr41gk3T26tQ9spJ3P3jM0v7sf1_PIuV2Cy4tZqmSxnTbmb0u"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roles\": [\"ROLE_ADMIN\"]   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/changerole/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								"changerole",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "785225f8-bf00-4b67-9031-7ed666f8cbaf"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CHANGE ROLE",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"roles\": [\"ROLE_ADMIN\"]   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/changerole/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										"changerole",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "785225f8-bf00-4b67-9031-7ed666f8cbaf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:28:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Roles updated successfully\"\n}"
+						},
+						{
+							"name": "CHANGE ROLE",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"roles\": [\"ROLE_USER\"]   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/changerole/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										"changerole",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "785225f8-bf00-4b67-9031-7ed666f8cbaf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:29:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Roles updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "USER ACCOUNTS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI0Mjc3LCJleHAiOjE3NTEyMjc4Nzd9.WwYOfMvDYSE6n5wXnFxruD-mslLefJOvMIyDNa98p2ABoVkWlTWqohIvjXk42hoB"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/:id/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								":id",
+								"accounts"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "785225f8-bf00-4b67-9031-7ed666f8cbaf"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "USER ACCOUNTS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/:id/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										":id",
+										"accounts"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "785225f8-bf00-4b67-9031-7ed666f8cbaf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:21:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User's accounts found\",\n    \"data\": [\n        {\n            \"id\": \"f3fd8a97-73e2-4bdf-8992-5aa5b1214294\",\n            \"firstName\": \"paz\",\n            \"lastName\": \"campos\",\n            \"accountNumber\": \"142826677660\",\n            \"balance\": 1.29\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "USER BILLS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI1Mjc0LCJleHAiOjE3NTEyMjg4NzR9.SqLUqRj630J6ndfDr41gk3T26tQ9spJ3P3jM0v7sf1_PIuV2Cy4tZqmSxnTbmb0u"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/:id/bills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								":id",
+								"bills"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "USER BILLS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/:id/bills",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										":id",
+										"bills"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 19:35:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User's bills found\",\n    \"data\": [\n        {\n            \"id\": \"62ed7bda-1f74-457e-ac0b-20360ba07a68\",\n            \"expenseName\": \"Pago restaurante\",\n            \"category\": \"2\",\n            \"amount\": 15,\n            \"date\": \"2025-06-29T00:00:00.000+00:00\",\n            \"state\": \"PENDING\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "USER TRANSACTIONS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjQxNjIxLCJleHAiOjE3NTEyNDUyMjF9.lBAyFE54tMdTRTmyCxVFecWdOIiL3mkbHygaKElS0SVQWvDu_sOVE5CzfY_Jdrpr"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/transaction/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"transaction",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "USER TRANSACTIONS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/transaction/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"transaction",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Jun 2025 00:09:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User's transactions found\",\n    \"data\": [\n        {\n            \"transactionId\": \"0648453e-037b-40d9-9f2f-6d603fcf8408\",\n            \"date\": \"2025-06-29T13:23:52.720602\",\n            \"amount\": 5,\n            \"originAccount\": {\n                \"accountOwner\": \"Joe Doe\",\n                \"accountNumber\": \"773217965003\"\n            },\n            \"destinationAccount\": {\n                \"accountOwner\": \"paz campos\",\n                \"accountNumber\": \"142826677660\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DEPOSIT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjI3NzU1LCJleHAiOjE3NTEyMzEzNTV9.xzrdk1iabkyJTxcd6-VCleTnFK_Ek7Lz7A66ZM8fHxfIQVbRXjH3NgqCPuHDPE-D"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"ffbec16d-c489-4d48-b8c8-f425f77af6e2\",\r\n    \"amount\": 35.50,\r\n    \"description\": \"Bank deposit\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/userlist/:id/deposit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"userlist",
+								":id",
+								"deposit"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DEPOSIT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountId\": \"ffbec16d-c489-4d48-b8c8-f425f77af6e2\",\r\n    \"amount\": 35.50,\r\n    \"description\": \"Bank deposit\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/userlist/:id/deposit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"userlist",
+										":id",
+										"deposit"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2e462f33-bce1-4959-a6dc-7ebada9710b9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Jun 2025 20:30:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deposit completed successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ALL TRANSACTIONS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzUxMjQxNjIxLCJleHAiOjE3NTEyNDUyMjF9.lBAyFE54tMdTRTmyCxVFecWdOIiL3mkbHygaKElS0SVQWvDu_sOVE5CzfY_Jdrpr"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/admin/findall"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/admin/findall"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Jun 2025 00:12:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"All transactions found\",\n    \"data\": [\n        {\n            \"transactionId\": \"0648453e-037b-40d9-9f2f-6d603fcf8408\",\n            \"date\": \"2025-06-29T13:23:52.720602\",\n            \"amount\": 5,\n            \"originAccount\": {\n                \"accountOwner\": \"Joe Doe\",\n                \"accountNumber\": \"773217965003\"\n            },\n            \"destinationAccount\": {\n                \"accountOwner\": \"paz campos\",\n                \"accountNumber\": \"142826677660\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: EasyBank
+
+  datasource:
+    url: jdbc:postgresql://172.17.0.1:5432/easybank
+    username: postgres
+    password: 123456
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+app:
+  jwt-secret: 5e6e0cf10a57c6b4e5b5a0e5ecb415bca702d9173e0fe90f2d9d6096b813d054
+  jwt-expiration-time: 3600000
