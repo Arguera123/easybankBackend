@@ -1,8 +1,8 @@
 # 💠 EasyBank Backend
 
-Este repositorio contiene la API REST para **EasyBank**, una plataforma de banca en línea desarrollada con **Spring Boot**, **PostgreSQL** y **Docker**, y desplegada en producción mediante **Railway**.
+Este repositorio contiene la API REST para **EasyBank**, una plataforma de banca en línea desarrollada con **Spring Boot**, **PostgreSQL** y **Docker**.
 
-Provee autenticación segura con JWT, control de usuarios y administración de transacciones financieras para la aplicación frontend [EasyBank Frontend](https://github.com/amgems/easybank-frontend).
+Provee autenticación segura con JWT, control de usuarios y administración de transacciones financieras para la aplicación frontend [EasyBank Frontend]([https://github.com/amgems/easybank-frontend](https://github.com/AxelAlvardo/IS---EasyBank---Frontend)).
 
 ---
 
@@ -17,7 +17,6 @@ Provee autenticación segura con JWT, control de usuarios y administración de t
 - 🐘 **PostgreSQL**
 - 🔐 **JWT** (Json Web Token)
 - 🐳 **Docker**
-- ☁️ **Railway** (hosting del backend)
 - ⚙️ **Lombok** (para evitar boilerplate)
 
 ---
@@ -109,22 +108,13 @@ docker run -p 8080:8080 easybank-backend
 
 ---
 
-## ☀️ Despliegue
-
-La API está desplegada en [**Railway**](https://railway.app/).
-
-- Se conecta automáticamente a una base de datos PostgreSQL gestionada desde Railway.
-- Variables de entorno como `DB_URL`, `DB_USER`, `DB_PASS`, `JWT_SECRET` deben estar configuradas desde el panel.
-
----
-
 ## ⚙️ Configuración local
 
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/amgems/easybank-backend.git
-cd easybank-backend
+git clone https://github.com/Arguera123/easybankBackend.git
+cd easybankBackend
 ```
 
 2. Crea un archivo `application.properties` en `src/main/resources/` con:
