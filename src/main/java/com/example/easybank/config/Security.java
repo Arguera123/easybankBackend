@@ -53,7 +53,7 @@ public class Security {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(API + AUTH + LOGIN).permitAll()
                         .requestMatchers(API + AUTH + REGISTER).permitAll()
-                        .anyRequest().authenticated()   // Let PreAuthorize handle the roles
+                        .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
 

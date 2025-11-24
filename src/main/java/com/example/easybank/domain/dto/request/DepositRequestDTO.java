@@ -25,7 +25,6 @@ public class DepositRequestDTO {
 
     @NotNull(message = "Amount is required")
     @DecimalMin(value = "0.01", message = "Amount must be at least 0.01")
-    @Digits(integer = 12, fraction = 2, message = "Amount must be a valid monetary value")
     private BigDecimal amount;
 
     @Size(max = 200, message = "Description must not exceed 200 characters")
