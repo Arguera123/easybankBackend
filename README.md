@@ -100,10 +100,7 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 
 ```bash
 # Construir imagen
-docker build -t easybank-backend .
-
-# Ejecutar contenedor
-docker run -p 8080:8080 easybank-backend
+docker compose up --build
 ```
 
 ---
