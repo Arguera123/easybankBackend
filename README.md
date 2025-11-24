@@ -100,6 +100,7 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 
 ```bash
 # Construir imagen
+mvn clean package -DskipTests 
 docker compose up --build
 ```
 
