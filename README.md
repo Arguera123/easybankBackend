@@ -114,6 +114,7 @@ docker run -p 8080:8080 easybank-backend
 
 ```bash
 git clone https://github.com/Arguera123/easybankBackend.git
+
 cd easybankBackend
 ```
 
