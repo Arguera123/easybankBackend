@@ -4,17 +4,14 @@ package com.example.easybank.service.implementation;
 import com.example.easybank.domain.dto.response.*;
 import com.example.easybank.domain.mapper.*;
 import com.example.easybank.exception.*;
-import com.example.easybank.repository.*;
+import com.example.easybank.repository.AccountRepository;
+import com.example.easybank.repository.RoleRepository;
+import com.example.easybank.repository.TransactionRepository;
+import com.example.easybank.repository.UserRepository;
 import com.example.easybank.service.AdminService;
 import com.example.easybank.domain.entity.*;
 import com.example.easybank.util.RoleName;
-import com.example.easybank.util.TransactionSpecifications;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +28,6 @@ public class AdminServiceImpl implements AdminService {
     private final RoleRepository roleRepository;
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
-    private final BillRepository billRepository;
 
 
     // Helper methods
@@ -42,11 +38,13 @@ public class AdminServiceImpl implements AdminService {
                 .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
     }
 
+
     //Obtiene un rol por nombre.
     private Role getRole(String name) {
         return roleRepository.findByName(name)
                 .orElseThrow(() -> new RoleNotFoundException("Role not found: " + name));
     }
+
 
     //Obtiene una cuenta por ID.
     private Account getAccountById(UUID id) {
@@ -56,17 +54,18 @@ public class AdminServiceImpl implements AdminService {
 
     //-------------------------------------------
 
+
+
     //Devuelve todos los usuarios activos
     @Override
-    public PageResponse<UserResponseDTO> findAllUsers(Pageable pageable) {
-
-        Page<UserResponseDTO> users = userRepository.findAll(pageable).map(UserMapper::toDTO);
-
-        return PageMapper.map(users);
+    @Transactional(readOnly = true)
+    public List<UserResponseDTO> findAllUsers() {
+        return UserMapper.toDTOList(userRepository.findAllByActiveTrue());
     }
 
 
     //Soft delete de un usuario (marca como inactivo).
+
     @Override
     public void delete(UUID id) {
         UserData user = getUserEntityById(id);
@@ -76,6 +75,7 @@ public class AdminServiceImpl implements AdminService {
 
 
     //Cambia los roles de un usuario.
+
     @Override
     public void changeRoles(UUID id, List<RoleName> roles) {
         UserData user = getUserEntityById(id);
@@ -116,58 +116,71 @@ public class AdminServiceImpl implements AdminService {
 
 
     //Obtiene bills de un usuario activo.
+
     @Override
-    @Transactional//(readOnly = true)
-    public PageResponse<BillResponseDTO> getUserBills(UUID userId, Pageable pageable) {
-        UserData user = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+    @Transactional(readOnly = true)
+    public List<BillResponseDTO> getUserBills(UUID userId) {
+        UserData user = getUserEntityById(userId);
 
-        Page<BillResponseDTO> bills = billRepository.getBillsByUser(user, pageable).map(BillMapper::toDTO);
-
-        return PageMapper.map(bills);
+        return user.getBills().stream()
+                .map(BillMapper::toDTO)
+                .toList();
     }
 
+
+
+    //Obtiene transacciones de un usuario específico o todas si no se pasa ID.
+    //Valida UUID y existencia del usuario.
     @Override
-    @Transactional//(readOnly = true)
-    public PageResponse<AdminTransactionResponseDTO> getUserTransactions(UUID userId, Pageable pageable) {
+    @Transactional(readOnly = true)
+    public List<AdminTransactionResponseDTO> getUserTransactions(String id) {
 
-        UserData user = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+        // Si no se proporciona ID, devolver todas las transacciones
+        if (id == null || id.isBlank()) {
+            return transactionRepository.findAll()
+                    .stream()
+                    .map(AdminTransactionMapper::toDTO)
+                    .toList();
+        }
 
-        Specification<Transaction> spec = Specification.allOf(
-                TransactionSpecifications.hasAccount(user.getAccounts().getFirst().getNumber())
-        );
+        // Validación de UUID
+        UUID userId;
+        try {
+            userId = UUID.fromString(id);
+        } catch (IllegalArgumentException ex) {
+            throw new InvalidUUIDException("Invalid UUID format: " + id);
+        }
 
-        Page<AdminTransactionResponseDTO> transactions =
-            transactionRepository.findAll(spec, pageable).map(UserTransactionMapper::toDTO);
+        // Verifica que el usuario exista y esté activo
+        getUserEntityById(userId);
 
-        return PageMapper.map(transactions);
-    }
+        // Buscar transacciones donde el usuario sea origen o destino
+        List<Transaction> transactions =
+                transactionRepository
+                        .findByOriginAccount_User_IdOrDestinationAccount_User_IdOrderByDateTimeDesc(
+                                userId, userId);
 
-    @Override
-    public PageResponse<AdminTransactionResponseDTO> findAll(Pageable pageable) throws Exception{
-        Page<AdminTransactionResponseDTO> transactions = transactionRepository.findAll(pageable).map(UserTransactionMapper::toDTO);
-
-        return PageMapper.map(transactions);
+        return transactions.stream()
+                .map(AdminTransactionMapper::toDTO)
+                .toList();
     }
 
 
     //Depósito a cuenta de usuario.
     //Valida usuario activo, cuenta válida y monto positivo.
+
     @Override
     @Transactional
-    public void depositToUserAccount(
-            UUID userId,
-            UUID accountId,
-            BigDecimal amount,
-            String description
-    ) {
+    public void depositToUserAccount(UUID userId,
+                                     UUID accountId,
+                                     BigDecimal amount,
+                                     String description,
+                                     String performedByUsername) {
 
         // Obtener admin que realiza la acción
-        String userAdmin = SecurityContextHolder.getContext().getAuthentication().getName();
-        UserData admin = userRepository.findByUsernameAndActiveTrue(userAdmin)
+        UserData admin = userRepository.findByUsernameAndActiveTrue(performedByUsername)
                 .orElseThrow(() -> new UserNotFoundException(
-                        "Admin user not found with name: " + userAdmin));
+                        "Admin user not found with name: " + performedByUsername));
 
         // Obtener usuario destino y cuenta
         UserData user = getUserEntityById(userId);

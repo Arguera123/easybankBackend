@@ -8,10 +8,9 @@ import com.example.easybank.service.AdminService;
 import com.example.easybank.util.GenericResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,34 +27,29 @@ public class AdminController {
 
     @GetMapping(USER_LIST)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> getAllUsers(Pageable pageable) throws Exception {
-        PageResponse<UserResponseDTO> page = adminService.findAllUsers(pageable);
+    public ResponseEntity<GenericResponse> getAllUsers() {
 
-        return GenericResponse.builder()
-                .data(page.getContent())
-                .message("Users found")
-                .status(HttpStatus.OK)
-                .pageNumber(page.getPageNumber())
-                .pageSize(page.getPageSize())
-                .first(page.isFirst())
-                .last(page.isLast())
-                .totalElements(page.getTotalElements())
-                .totalPages(page.getTotalPages())
-                .build().buildResponse();
+        List<UserResponseDTO> users = adminService.findAllUsers();
+
+        return GenericResponse.success("Users found", users);
     }
 
-    @GetMapping(USER_LIST + "/{id}")
+
+    @GetMapping(USER_LIST + ID)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> getUserById(@PathVariable("id")  UUID id) throws Exception {
+    public ResponseEntity<GenericResponse> getUserById(@PathVariable UUID id) {
+
         UserResponseDTO user = adminService.getUserById(id);
 
         return GenericResponse.success("User found", user);
     }
 
 
-    @DeleteMapping(USER_LIST + DELETE + "/{id}")
+
+    @DeleteMapping(USER_LIST + DELETE + ID)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> deleteUser(@PathVariable("id") UUID id) throws Exception {
+    public ResponseEntity<GenericResponse> deleteUser(@PathVariable UUID id) {
+
         adminService.delete(id);
 
         return GenericResponse.accepted("Successfully deleted user");
@@ -63,113 +57,73 @@ public class AdminController {
     }
 
 
-    @PutMapping(USER_LIST + CHANGE_ROLE + "/{id}")
+    @PutMapping(USER_LIST + CHANGE_ROLE + ID)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> changeUserRoles(@PathVariable ("id") UUID id, @RequestBody ChangeRoleRequestDTO request) {
+    public ResponseEntity<GenericResponse> changeUserRoles(
+            @PathVariable UUID id,
+            @Valid @RequestBody ChangeRoleRequestDTO request
+
+    ) {
 
         adminService.changeRoles(id, request.getRoles());
 
         return GenericResponse.success("Roles updated successfully");
     }
 
-    @GetMapping(USER_LIST + "/{id}/accounts")
+
+    @GetMapping(USER_LIST + ID + ACCOUNT)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> getUserAccounts(@PathVariable ("id") UUID id) {
-        List<AccountResponseAdminDTO> accounts = adminService.getUserAccounts(id);
-        return GenericResponse.builder()
-                .data(accounts)
-                .message("User's accounts found")
-                .status(HttpStatus.OK)
-                .build().buildResponse();
-    }
+    public ResponseEntity<GenericResponse> getUserAccounts(@PathVariable UUID id) {
 
-    @GetMapping(USER_LIST + "/{id}/bills")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> getUserBills(
-            @PathVariable ("id") UUID id,
-            Pageable pageable
-    ) throws Exception {
-        PageResponse<BillResponseDTO> page = adminService.getUserBills(id, pageable);
-        return GenericResponse.builder()
-                .data(page.getContent())
-                .message("User's bills found")
-                .status(HttpStatus.OK)
-                .pageNumber(page.getPageNumber())
-                .pageSize(page.getPageSize())
-                .first(page.isFirst())
-                .last(page.isLast())
-                .totalElements(page.getTotalElements())
-                .totalPages(page.getTotalPages())
-                .build().buildResponse();
-    }
-
-    @GetMapping(TRANSACTION + "/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> getUserTransactions(
-            @PathVariable ("id") UUID id,
-            Pageable pageable
-    ) throws Exception {
-
-        PageResponse<AdminTransactionResponseDTO> page = adminService.getUserTransactions(id, pageable);
-
-        return GenericResponse.builder()
-                .data(page.getContent())
-                .message("User's transactions found")
-                .status(HttpStatus.OK)
-                .pageNumber(page.getPageNumber())
-                .pageSize(page.getPageSize())
-                .first(page.isFirst())
-                .last(page.isLast())
-                .totalElements(page.getTotalElements())
-                .totalPages(page.getTotalPages())
-                .build().buildResponse();
+        return GenericResponse.success(
+                "User's accounts found",
+                adminService.getUserAccounts(id)
+        );
     }
 
 
-    @PostMapping(USER_LIST + "/{id}/deposit")
+    @GetMapping(USER_LIST + ID + BILL)
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<GenericResponse> getUserBills(@PathVariable UUID id) {
+
+        return GenericResponse.success(
+                "User's bills found",
+                adminService.getUserBills(id)
+        );
+    }
+
+
+    @PostMapping(USER_LIST + ID + DEPOSIT)
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<GenericResponse> depositToUserAccount(
             @PathVariable UUID id,
-            @Valid @RequestBody DepositRequestDTO request
+            @Valid @RequestBody DepositRequestDTO request,
+            Authentication authentication
     ) {
+
         adminService.depositToUserAccount(
                 id,
                 request.getAccountId(),
                 request.getAmount(),
-                request.getDescription()
+                request.getDescription(),
+                authentication.getName()
         );
 
         return GenericResponse.success("Deposit completed successfully");
     }
 
+
+
     @GetMapping(TRANSACTION)
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GenericResponse> findAllTransactions(Pageable pageable) throws Exception {
-        PageResponse<AdminTransactionResponseDTO> page = adminService.findAll(pageable);
+    public ResponseEntity<GenericResponse> getTransactions(
+            @RequestParam(required = false) String id
+    ) {
 
-        return GenericResponse.builder()
-                .status(HttpStatus.OK)
-                .message("All transactions found")
-                .data(page.getContent())
-                .pageNumber(page.getPageNumber())
-                .pageSize(page.getPageSize())
-                .first(page.isFirst())
-                .last(page.isLast())
-                .totalElements(page.getTotalElements())
-                .totalPages(page.getTotalPages())
-                .build().buildResponse();
+        return GenericResponse.success(
+                "Transactions retrieved",
+                adminService.getUserTransactions(id)
+        );
     }
 
-//    @GetMapping(TRANSACTION)
-//    @PreAuthorize("hasRole('ADMIN')")
-//    public ResponseEntity<GenericResponse> getTransactions(
-//            @RequestParam(required = false) UUID id,
-//            Pageable pageable
-//    ) {
-//
-//        return GenericResponse.success(
-//                "Transactions retrieved",
-//                adminService.getUserTransactions(id, pageable)
-//        );
-//    }
 }

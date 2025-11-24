@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -16,4 +17,11 @@ public interface TransactionRepository extends JpaRepository<Transaction, UUID> 
     Page<Transaction> findByOriginAccount_User(UserData user, Pageable pageable);
     Page<Transaction> findByDestinationAccount_User(UserData user, Pageable pageable);
     Page<Transaction> findAll(Specification<Transaction> spec, Pageable pageable);
+
+
+    List<Transaction> findByOriginAccount_User_IdOrDestinationAccount_User_IdOrderByDateTimeDesc(
+            UUID originUserId,
+            UUID destinationUserId
+    );
+
 }
